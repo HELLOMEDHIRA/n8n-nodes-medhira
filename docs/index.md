@@ -29,16 +29,16 @@ npm install @medhira/n8n-nodes-markdown-pdf
 docker restart n8n
 ```
 
-Done! The **MarkdownToPdf** node is now available in your n8n editor.
+Done! The **Markdown To Pdf** node is now available in your n8n editor.
 
 ## Usage in 30 Seconds
 
-1. **Add Node**: Press `Ctrl+K` → Search "MarkdownToPdf" → Add to workflow
+1. **Add Node**: Press `Ctrl+K` → Search "Markdown To Pdf" → Add to workflow
 2. **Enter Markdown**: Type or paste your Markdown content
 3. **Save PDF**: Connect to **Write Binary File** node
 
 ```
-[Any Node] → [MarkdownToPdf] → [Write Binary File]
+[Any Node] → [Markdown To Pdf] → [Write Binary File]
 ```
 
 ## Features
