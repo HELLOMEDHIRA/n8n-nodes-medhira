@@ -1,6 +1,6 @@
 # n8n-nodes-medhira
 
-[![NPM Version](https://img.shields.io/npm/v/@medhira/n8n-nodes-markdown-pdf.svg)](https://www.npmjs.com/package/@medhira/n8n-nodes-markdown-pdf)
+[![NPM Version](https://img.shields.io/npm/v/n8n-nodes-medhira.svg)](https://www.npmjs.com/package/n8n-nodes-medhira)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![ MEDHIRA](https://img.shields.io/badge/Powered%20by-MEDHIRA-blue)](https://medhira.readthedocs.io/en/latest/)
 
@@ -20,7 +20,7 @@ docker exec -it n8n sh
 
 ```bash
 mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
-npm install @medhira/n8n-nodes-markdown-pdf
+npm install n8n-nodes-medhira
 ```
 
 ### Step 3: Restart n8n
@@ -56,7 +56,7 @@ Done! The **Markdown To Pdf** node is now available in your n8n editor.
 - [Usage Guide](./usage.md)
 - [Configuration](./configuration.md)
 - [GitHub](https://github.com/HELLOMEDHIRA/n8n-nodes-medhira)
-- [NPM Package](https://www.npmjs.com/package/@medhira/n8n-nodes-markdown-pdf)
+- [NPM Package](https://www.npmjs.com/package/n8n-nodes-medhira)
 - [MEDHIRA](https://medhira.readthedocs.io/en/latest/)
 - [Contact](mailto:hello.medhira@gmail.com)
 
