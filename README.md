@@ -1,6 +1,6 @@
 # n8n-nodes-medhira
 
-[![NPM Version](https://img.shields.io/npm/v/@medhira/n8n-nodes-markdown-pdf.svg)](https://www.npmjs.com/package/@medhira/n8n-nodes-markdown-pdf)
+[![NPM Version](https://img.shields.io/npm/v/n8n-nodes-medhira.svg)](https://www.npmjs.com/package/n8n-nodes-medhira)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![ MEDHIRA](https://img.shields.io/badge/Powered%20by-MEDHIRA-blue)](https://medhira.readthedocs.io/en/latest/)
 
@@ -10,35 +10,39 @@
 
 ## Install in 30 Seconds
 
-### Step 1: Access n8n Terminal
+### Docker
 
 ```bash
 docker exec -it n8n sh
-```
-
-### Step 2: Install the Node
-
-```bash
 mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
-npm install @medhira/n8n-nodes-markdown-pdf
-```
-
-### Step 3: Restart n8n
-
-```bash
+npm install n8n-nodes-medhira
 docker restart n8n
 ```
 
-Done! The **MarkdownToPdf** node is now available in your n8n editor.
+### npx n8n
+
+```bash
+mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
+npm install n8n-nodes-medhira
+npx n8n
+```
+
+### Global n8n
+
+```bash
+mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
+npm install n8n-nodes-medhira
+n8n
+```
 
 ## Usage in 30 Seconds
 
-1. **Add Node**: Press `Ctrl+K` → Search "MarkdownToPdf" → Add to workflow
+1. **Add Node**: Press `Ctrl+K` → Search "Markdown To Pdf" → Add to workflow
 2. **Enter Markdown**: Type or paste your Markdown content
 3. **Save PDF**: Connect to **Write Binary File** node
 
 ```
-[Any Node] → [MarkdownToPdf] → [Write Binary File]
+[Any Node] → [Markdown To Pdf] → [Write Binary File]
 ```
 
 ## Features
@@ -49,31 +53,12 @@ Done! The **MarkdownToPdf** node is now available in your n8n editor.
 - **Math Formulas** - KaTeX support for LaTeX math
 - **Code Highlighting** - Syntax highlighting for code
 
-## Example Markdown
-
-```markdown
-# Hello World
-
-This is **bold** and *italic* text.
-
-## Features
-- Item 1
-- Item 2
-- Item 3
-
-## Code
-\`\`\`javascript
-console.log("Hello, PDF!");
-\`\`\`
-```
-
 ## Quick Links
 
 - [Documentation](https://medhira.readthedocs.io/en/latest/n8n-nodes-medhira/)
 - [GitHub](https://github.com/HELLOMEDHIRA/n8n-nodes-medhira)
-- [NPM Package](https://www.npmjs.com/package/@medhira/n8n-nodes-markdown-pdf)
+- [NPM Package](https://www.npmjs.com/package/n8n-nodes-medhira)
 - [MEDHIRA](https://medhira.readthedocs.io/en/latest/)
-- [Report Bug](https://github.com/HELLOMEDHIRA/n8n-nodes-medhira/issues)
 - [Contact](mailto:hello.medhira@gmail.com)
 
 ## License

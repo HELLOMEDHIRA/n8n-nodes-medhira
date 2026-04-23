@@ -1,5 +1,5 @@
 {
-  "name": "@medhira/n8n-nodes-markdown-pdf",
+  "name": "n8n-nodes-medhira",
   "version": "1.0.0",
   "description": "Convert Markdown to PDF inside n8n using Puppeteer - A Medhira community package",
   "keywords": [

@@ -1,6 +1,6 @@
 # Installation
 
-This guide helps you install the **MarkdownToPdf** node for n8n in just 3 simple steps.
+This guide helps you install the **Markdown To Pdf** node for n8n in just 3 simple steps.
 
 ## Prerequisites
 
@@ -11,13 +11,17 @@ This guide helps you install the **MarkdownToPdf** node for n8n in just 3 simple
 
 ## Quick Install (Recommended)
 
-### Step 1: Access Your n8n Container
+### Step 1: Access Your n8n Terminal
+
+Depending on how you run n8n:
 
 ```bash
+# Docker
 docker exec -it n8n sh
-```
 
-> **Tip:** If you're running n8n locally (not Docker), open your terminal instead.
+# Or local n8n (terminal)
+# Just open your terminal - no docker exec needed
+```
 
 ### Step 2: Create Nodes Directory
 
@@ -29,20 +33,42 @@ cd ~/.n8n/nodes
 ### Step 3: Install the Node
 
 ```bash
-npm install @medhira/n8n-nodes-markdown-pdf
+npm install n8n-nodes-medhira
 ```
 
 ### Step 4: Restart n8n
 
 ```bash
-# If using Docker
+# Docker
 docker restart n8n
 
-# If running locally, stop and start n8n
-# (Ctrl+C to stop, then n8n to start)
+# npx n8n
+# Stop (Ctrl+C) and run: npx n8n
+
+# Global installation
+# Stop and run: n8n
 ```
 
 That's it! The node is now installed.
+
+## Install Without Docker
+
+If you're running n8n via npx or global install:
+
+```bash
+# Create nodes directory
+mkdir -p ~/.n8n/nodes
+cd ~/.n8n/nodes
+
+# Install the node
+npm install n8n-nodes-medhira
+
+# Restart n8n
+# Stop current n8n (Ctrl+C) and start again
+npx n8n
+# or
+n8n
+```
 
 ## Alternative: In-App Installation
 
@@ -50,40 +76,40 @@ For verified community nodes, you can install directly from n8n:
 
 1. Open n8n in your browser
 2. Go to **Settings** → **Community Nodes**
-3. Enter the package name: `@medhira/n8n-nodes-markdown-pdf`
+3. Enter the package name: `n8n-nodes-medhira`
 4. Click **Install**
 
 ## Verify Installation
 
 1. Open n8n
 2. Press `Ctrl+K` (or `Cmd+K` on Mac) to open node search
-3. Type `MarkdownToPdf`
+3. Type `Markdown To Pdf`
 4. You should see the node in results
 
 ## Usage in 30 Seconds
 
-1. **Add Node**: Search for "MarkdownToPdf" and add it to your workflow
+1. **Add Node**: Search for "Markdown To Pdf" and add it to your workflow
 2. **Enter Markdown**: Type or paste your Markdown in the text field
 3. **Connect Output**: Connect to **Write Binary File** to save the PDF
 
 Example workflow:
 
 ```
-[Webhook/Any Input] → [MarkdownToPdf] → [Write Binary File]
+[Webhook/Any Input] → [Markdown To Pdf] → [Write Binary File]
 ```
 
 ## Upgrade
 
 ```bash
 cd ~/.n8n/nodes
-npm update @medhira/n8n-nodes-markdown-pdf
+npm update n8n-nodes-medhira
 ```
 
 ## Uninstall
 
 ```bash
 cd ~/.n8n/nodes
-npm uninstall @medhira/n8n-nodes-markdown-pdf
+npm uninstall n8n-nodes-medhira
 ```
 
 ## Troubleshooting

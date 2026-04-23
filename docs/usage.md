@@ -1,11 +1,11 @@
 # Usage
 
-This guide shows you how to use the **MarkdownToPdf** node in n8n.
+This guide shows you how to use the **Markdown To Pdf** node in n8n.
 
 ## Add the Node
 
 1. Press `Ctrl+K` (or `Cmd+K` on Mac) to open node search
-2. Type `MarkdownToPdf`
+2. Type `Markdown To Pdf`
 3. Select the node from results
 
 ## Configure
@@ -28,7 +28,7 @@ This is a paragraph with **bold** and *italic* text.
 Connect the node to save the PDF:
 
 ```
-MarkdownToPdf → Write Binary File
+Markdown To Pdf → Write Binary File
 ```
 
 In **Write Binary File**:
@@ -38,7 +38,7 @@ In **Write Binary File**:
 ## Complete Example
 
 ```
-[Webhook] → [MarkdownToPdf] → [Write Binary File]
+[Webhook] → [Markdown To Pdf] → [Write Binary File]
 ```
 
 Set webhook to receive Markdown input, convert to PDF, and save to disk.
