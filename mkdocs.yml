@@ -1,0 +1,67 @@
+site_name: n8n-nodes-medhira
+site_description: "Convert Markdown to PDF inside n8n using Puppeteer - A Medhira community package"
+site_author: "MEDHIRA"
+site_url: "https://medhira.readthedocs.io/en/latest/n8n-nodes-medhira/"
+
+repo_url: "https://github.com/HELLOMEDHIRA/n8n-nodes-medhira"
+repo_name: "HELLOMEDHIRA/n8n-nodes-medhira"
+
+docs_dir: docs
+
+copyright: "Copyright &copy; 2024 - 2026 MEDHIRA. Apache License 2.0."
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: blue
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: blue
+  logo: https://raw.githubusercontent.com/HELLOMEDHIRA/medhira/main/assets/medhira-logo.png
+  favicon: https://raw.githubusercontent.com/HELLOMEDHIRA/medhira/main/assets/medhira-logo.png
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+
+extra:
+  social:
+    - icon: fontawesome/brands/npm
+      link: https://www.npmjs.com/org/medhira
+      name: MEDHIRA on NPM
+    - icon: fontawesome/brands/github
+      link: https://github.com/HELLOMEDHIRA
+      name: MEDHIRA on GitHub
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/search/?query=medhira
+      name: MEDHIRA on PyPI
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - fenced_code
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - Configuration: configuration.md
