@@ -1,69 +1,100 @@
 # n8n-nodes-medhira
 
-[![NPM Version](https://img.shields.io/npm/v/n8n-nodes-medhira.svg)](https://www.npmjs.com/package/n8n-nodes-medhira)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![ MEDHIRA](https://img.shields.io/badge/Powered%20by-MEDHIRA-blue)](https://medhira.readthedocs.io/en/latest/)
+<div align="center">
 
-**Convert Markdown to PDF inside n8n using Puppeteer - A Medhira community package**
+**Convert Markdown to beautiful PDFs inside n8n — free, self-hosted, and production-ready.**
 
-![MEDHIRA](https://raw.githubusercontent.com/HELLOMEDHIRA/medhira/main/assets/medhira-logo.png)
+[![npm version](https://img.shields.io/npm/v/n8n-nodes-medhira.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/n8n-nodes-medhira)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Powered by MEDHIRA](https://img.shields.io/badge/Powered%20by-MEDHIRA-2563eb?style=for-the-badge)](https://medhira.readthedocs.io/en/latest/)
 
-## Install in 30 Seconds
+<img src="https://raw.githubusercontent.com/HELLOMEDHIRA/medhira/main/assets/medhira-logo.png" alt="MEDHIRA" width="100" />
 
-### Step 1: Access n8n Terminal
+</div>
 
-```bash
-docker exec -it n8n sh
+---
+
+## Overview
+
+The **Markdown To Pdf** node converts Markdown text into styled PDF documents using Puppeteer. It supports syntax-highlighted code, LaTeX math via KaTeX, tables, and batch processing — all within your n8n workflow.
+
+```mermaid
+flowchart LR
+    A["Input Markdown"] --> B["Markdown To Pdf"]
+    B --> C["PDF Binary Output"]
+    C --> D["Write Binary File / Email / S3"]
+    style B fill:#2563eb,color:#fff,stroke:none
 ```
 
-### Step 2: Install the Node
+---
+
+## Features
+
+| Feature | Details |
+|---------|---------|
+| **Rich Markdown** | Headers, lists, tables, blockquotes, links |
+| **Syntax highlighting** | Code blocks rendered with Highlight.js |
+| **Math formulas** | Inline and block LaTeX via bundled KaTeX |
+| **Batch processing** | Process multiple input items in one run |
+| **Configurable output** | Custom file names and page formats (A4, Letter, Legal) |
+| **Self-hosted** | Works with Docker, npx, and global n8n installs |
+
+---
+
+## Quick install
 
 ```bash
 mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
 npm install n8n-nodes-medhira
 ```
 
-### Step 3: Restart n8n
+Restart n8n, then search for **Markdown To Pdf** in the node panel.
 
-```bash
-docker restart n8n
+See the full [Installation Guide](installation.md) for Docker, npx, and troubleshooting steps.
+
+---
+
+## Quick usage
+
+1. Add the **Markdown To Pdf** node to your workflow
+2. Enter Markdown in the node, or pass it from a previous node as `json.markdown`
+3. Connect to **Write Binary File** to save the PDF
+
+```mermaid
+flowchart LR
+    WH["Webhook"] --> MD["Markdown To Pdf"]
+    MD --> WF["Write Binary File"]
 ```
 
-Done! The **Markdown To Pdf** node is now available in your n8n editor.
+---
 
-## Usage in 30 Seconds
+## Documentation
 
-1. **Add Node**: Press `Ctrl+K` → Search "Markdown To Pdf" → Add to workflow
-2. **Enter Markdown**: Type or paste your Markdown content
-3. **Save PDF**: Connect to **Write Binary File** node
+| Guide | Description |
+|-------|-------------|
+| [Installation](installation.md) | Install on Docker, npx, or global n8n |
+| [Usage](usage.md) | Workflow examples and input/output reference |
+| [Configuration](configuration.md) | PDF settings and node options |
 
-```
-[Any Node] → [Markdown To Pdf] → [Write Binary File]
-```
+---
 
-## Features
+## Links
 
-- **Free Alternative** - No paid nodes required
-- **High-Quality PDF** - Professional output with styling
-- **Full Markdown** - Headers, lists, tables, code blocks
-- **Math Formulas** - KaTeX support for LaTeX math
-- **Code Highlighting** - Syntax highlighting for code
-- **Batch Processing** - Process multiple items
-
-## Quick Links
-
-- [Installation Guide](./installation.md)
-- [Usage Guide](./usage.md)
-- [Configuration](./configuration.md)
-- [GitHub](https://github.com/HELLOMEDHIRA/n8n-nodes-medhira)
+- [GitHub Repository](https://github.com/HELLOMEDHIRA/n8n-nodes-medhira)
 - [NPM Package](https://www.npmjs.com/package/n8n-nodes-medhira)
 - [MEDHIRA](https://medhira.readthedocs.io/en/latest/)
 - [Contact](mailto:hello.medhira@gmail.com)
 
+---
+
 ## License
 
-Licensed under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 ---
 
-Made with love by [MEDHIRA](https://medhira.readthedocs.io/en/latest/)
+<div align="center">
+
+Made with care by **[MEDHIRA](https://medhira.readthedocs.io/en/latest/)**
+
+</div>

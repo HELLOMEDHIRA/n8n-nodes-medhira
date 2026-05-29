@@ -1,102 +1,122 @@
 # Installation
 
-This guide helps you install the **Markdown To Pdf** node for n8n in just 3 simple steps.
+Install the **Markdown To Pdf** community node on your self-hosted n8n instance.
+
+!!! note "Self-hosted only"
+    Community nodes are supported on **self-hosted n8n** only. n8n Cloud does not support custom community node installation via the filesystem.
+
+---
 
 ## Prerequisites
 
 | Requirement | Version | Notes |
 |-------------|---------|-------|
 | [Node.js](https://nodejs.org/) | 18+ | LTS recommended |
-| [n8n](https://n8n.io/) | Self-hosted | Required (not supported on n8n Cloud) |
+| [n8n](https://n8n.io/) | Self-hosted | Docker, npx, or global install |
 
-## Quick Install (Recommended)
+---
 
-### Step 1: Access Your n8n Terminal
+## Install methods
 
-Depending on how you run n8n:
+=== "Docker"
 
-```bash
-# Docker
-docker exec -it n8n sh
+    ```bash
+    docker exec -it n8n sh
+    mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
+    npm install n8n-nodes-medhira
+    exit
+    docker restart n8n
+    ```
 
-# Or local n8n (terminal)
-# Just open your terminal - no docker exec needed
+=== "npx n8n"
+
+    ```bash
+    mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
+    npm install n8n-nodes-medhira
+    ```
+
+    Stop n8n (`Ctrl+C`) and restart:
+
+    ```bash
+    npx n8n
+    ```
+
+=== "Global n8n"
+
+    ```bash
+    mkdir -p ~/.n8n/nodes && cd ~/.n8n/nodes
+    npm install n8n-nodes-medhira
+    ```
+
+    Stop and restart n8n:
+
+    ```bash
+    n8n
+    ```
+
+=== "In-app (Community Nodes)"
+
+    1. Open n8n in your browser
+    2. Go to **Settings → Community Nodes**
+    3. Enter package name: `n8n-nodes-medhira`
+    4. Click **Install**
+
+---
+
+## Verify installation
+
+```mermaid
+flowchart TD
+    A["Restart n8n"] --> B["Open workflow editor"]
+    B --> C["Press Ctrl+K / Cmd+K"]
+    C --> D["Search: Markdown To Pdf"]
+    D --> E{"Node appears?"}
+    E -->|Yes| F["Installation successful"]
+    E -->|No| G["Check logs and paths"]
 ```
 
-### Step 2: Create Nodes Directory
+1. Open n8n and create or edit a workflow
+2. Press `Ctrl+K` (or `Cmd+K` on Mac)
+3. Search for **Markdown To Pdf**
+4. The node should appear in the results
 
-```bash
-mkdir -p ~/.n8n/nodes
-cd ~/.n8n/nodes
-```
+---
 
-### Step 3: Install the Node
+## Puppeteer system dependencies
 
-```bash
-npm install n8n-nodes-medhira
-```
+Puppeteer ships with Chromium. On minimal Linux/Docker images you may need extra libraries:
 
-### Step 4: Restart n8n
+=== "Ubuntu / Debian"
 
-```bash
-# Docker
-docker restart n8n
+    ```bash
+    apt-get update && apt-get install -y \
+        libnss3 \
+        libatk1.0-0 \
+        libatk-bridge2.0-0 \
+        libcups2 \
+        libdrm2 \
+        libxkbcommon0 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxfixes3 \
+        libxrandr2 \
+        libgbm1 \
+        libasound2
+    ```
 
-# npx n8n
-# Stop (Ctrl+C) and run: npx n8n
+=== "Alpine Linux"
 
-# Global installation
-# Stop and run: n8n
-```
+    ```bash
+    apk add --no-cache \
+        chromium \
+        nss \
+        freetype \
+        harfbuzz \
+        ca-certificates \
+        ttf-freefont
+    ```
 
-That's it! The node is now installed.
-
-## Install Without Docker
-
-If you're running n8n via npx or global install:
-
-```bash
-# Create nodes directory
-mkdir -p ~/.n8n/nodes
-cd ~/.n8n/nodes
-
-# Install the node
-npm install n8n-nodes-medhira
-
-# Restart n8n
-# Stop current n8n (Ctrl+C) and start again
-npx n8n
-# or
-n8n
-```
-
-## Alternative: In-App Installation
-
-For verified community nodes, you can install directly from n8n:
-
-1. Open n8n in your browser
-2. Go to **Settings** → **Community Nodes**
-3. Enter the package name: `n8n-nodes-medhira`
-4. Click **Install**
-
-## Verify Installation
-
-1. Open n8n
-2. Press `Ctrl+K` (or `Cmd+K` on Mac) to open node search
-3. Type `Markdown To Pdf`
-4. You should see the node in results
-
-## Usage in 30 Seconds
-
-1. **Add Node**: Search for "Markdown To Pdf" and add it to your workflow
-2. **Enter Markdown**: Type or paste your Markdown in the text field
-3. **Connect Output**: Connect to **Write Binary File** to save the PDF
-
-Example workflow:
-
-```
-[Webhook/Any Input] → [Markdown To Pdf] → [Write Binary File]
-```
+---
 
 ## Upgrade
 
@@ -105,6 +125,10 @@ cd ~/.n8n/nodes
 npm update n8n-nodes-medhira
 ```
 
+Restart n8n after upgrading.
+
+---
+
 ## Uninstall
 
 ```bash
@@ -112,45 +136,31 @@ cd ~/.n8n/nodes
 npm uninstall n8n-nodes-medhira
 ```
 
+Restart n8n to remove the node from the editor.
+
+---
+
 ## Troubleshooting
 
-### "Community nodes not loading"
+### Community nodes not loading
 
-- Ensure you're using **self-hosted n8n** (not n8n Cloud)
+- Confirm you are on **self-hosted n8n** (not n8n Cloud)
 - Restart n8n after installation
 - Check logs: `docker logs n8n`
 
-### Puppeteer Errors
+### Puppeteer / Chromium errors
 
-If you see Chrome/Puppeteer errors:
+Install the [system dependencies](#puppeteer-system-dependencies) for your OS, then restart n8n.
 
-```bash
-# Install required system libraries (Ubuntu/Debian)
-apt-get update && apt-get install -y \
-    libnss3 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libcups2 \
-    libdrm2 \
-    libxkbcommon0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxrandr2 \
-    libgbm1 \
-    libasound2
-```
-
-### Permission Denied
-
-If you get permission errors:
+### Permission denied
 
 ```bash
-# Fix ownership
 sudo chown -R $(whoami) ~/.n8n
 ```
 
-## Next Steps
+---
 
-- See **[Usage Guide](./usage.md)** for detailed examples
-- See **[Configuration](./configuration.md)** for PDF settings
+## Next steps
+
+- [Usage Guide](usage.md) — workflow examples
+- [Configuration](configuration.md) — PDF options
